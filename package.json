@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "gitbook serve ./src",
+    "dev": "gitbook serve ./src --watch --live  --browser",
     "build": "gitbook build ./src ./docs --format website",
-    "init": "gitbook init"
+    "init": "gitbook init ./src"
   },
   "license": "MIT",
   "devDependencies": {
