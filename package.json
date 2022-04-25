@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "gitbook serve",
+    "dev": "gitbook serve ./docs",
+    "build": "gitbook build ./docs ./dist --format website",
     "init": "gitbook init"
   },
   "license": "MIT",
