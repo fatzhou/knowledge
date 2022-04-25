@@ -1,0 +1,17 @@
+{
+  "name": "blogs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gitbook serve",
+    "init": "gitbook init ./docs"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "gitbook-cli": "^2.3.2"
+  },
+  "dependencies": {
+    "graceful-fs": "^4.2.10"
+  },
+  "_id": "blogs@1.0.0"
+}
