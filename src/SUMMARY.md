@@ -1,5 +1,5 @@
 # Summary
 
-* [随便写写](README.md)
-* [Typescript](Typescript/test.md)
-
+- 玩转 Git
+  - [Git 安装](gitmd/git-one.md)
+  - [Git 配置](gitmd/git-two.md)
