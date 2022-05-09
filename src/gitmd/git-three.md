@@ -1,73 +1,38 @@
 # 工作区与暂存区
 
-在 git 在我们正式使用之前，我们需要配置 git 信息在我们本机
+### 工作区
 
-### 配置 user 信息
+工作区就是我们在电脑里能看到的目录，就好比你能在编辑器左侧或者右侧上看到的目录.
+当我们在编辑器处工作时，就是在工作区内做改动，可以通过 `$ git status`查看状态。
 
-user 信息主要是包括我们在 git 上注册的用户名和邮箱，接下来可以通过两个命令去配置 user.name 和 user.email。
+### 暂存区
 
-配置 user.name 的时候，我们只需要将'my_name'替换成你自己的 git 用户名
+工作区有一个隐藏目录.git，这个不算工作区，而是 Git 的版本库。
 
-`$ git config --global user.name 'my_name'`
+Git 的版本库里存了很多东西，其中最重要的就是称为 stage（或者叫 index）的暂存区，还有 Git 为我们自动创建的第一个分支 master，以及指向 master 的一个指针叫 HEAD。
 
-配置 user.email 的时候，我们只需要将'my_email'替换成注册的 git 邮箱
+> 执行 `$ git add .` 命令就能将工作区的所有的文件添加到暂存区中，然后通过 `$ git status`查看状态。
 
-`$ git config --global user.email 'my_email@demo.com'`
+### 版本库（commit History）
 
-#### config 的三个作用域
+将暂存区的数据通过 `$ git commit xxx` 提交到 master 版本库中去，存放已经提交的数据，当执行 git push 操作时，就是把这个区的数据 push 到远程仓库
 
-##### 缺省等同于 local
+### 分享几个常用查看提交日志的命令
 
-- local 表示只对某个仓库有效
+通过 `$ git log` 可以查看到当前分支的所有提交信息
 
-`$ git config --local`
+通过 `$ git log --oneline` 可以查看到当前分支的简单提交信息
 
-- global 表示对当前用户所有仓库有效
+通过 `$ git log -n4` 可以查最近 4 次提交
 
-`$ git config --global`
+通过 `$ git log --graph` 可以查看到分支的图形化提交信息
 
-- system 表示对系统所有登录的用户有效
+通过 `$ git log --all` 可以查看到所有分支的提交历史
 
-`$ git config --system`
+以上参数可以搭配使用
 
-##### 显示 config 的配置，加 --list
+#### 如何撤销暂存区的修改
 
-```
-$ git config --list --local
+执行 `$ git reset HEAD file` 撤销命令，但是会保留修改
 
-$ git config --list --global
-
-$ git config --list --system
-```
-
-## 怎么在一个 system 上配置多个用户
-
-如果我们注册了多个 git 用户，并且需要在同一个 system 上去配置多个用户时，我们需要用以下命令
-
-- 第一步就是添加我们的用户名和邮箱
-
-```
-$ git config --global user.name 'newkey'
-
-$ git config --global user.email 'newkey@demo.com'
-```
-
-- 第二步就是生成 ssh 密钥，通过一下两个命令
-
-```
-$ cd ~/.ssh
-
-$ ssh-keygen -t ed25519 -C "your_email@example.com"
-```
-
-然后就可以看到我们生成的 newkey 文件和 newkey.pub 文件，使用一下命令查看内容
-
-`$ cat newkey.pub`
-
-然后拷贝生成的密钥，使用浏览器登录我们的 git 账号，在 setting 处将拷贝的内容配置好
-
-- 最后一步就是将我们生成的 key 添加到我们的系统
-
-`$ ssh-add -K ~/.ssh/newkey`
-
-这样我们的多用户信息就配置好了，接下来我们就可以直接 git push 我们的变更了
+如果不需要保留修改的部分的话，可以加上 --hard ，`$ git reset --hard HEAD^`，--hard 需要谨慎使用，一旦丢失，就不好找回来了。

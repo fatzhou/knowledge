@@ -1,6 +1,6 @@
 # Git 配置
 
-在 git 在我们正式使用之前，我们需要配置 git 信息在我们本机
+在我们正式使用 git 之前，我们需要配置 git 信息在我们本机
 
 ### 配置 user 信息
 
@@ -52,7 +52,7 @@ $ git config --global user.name 'newkey'
 $ git config --global user.email 'newkey@demo.com'
 ```
 
-- 第二步就是生成 ssh 密钥，通过一下两个命令
+- 第二步就是生成 ssh 密钥，通过以下两个命令
 
 ```
 $ cd ~/.ssh

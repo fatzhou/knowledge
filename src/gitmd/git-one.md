@@ -26,4 +26,4 @@
 
 安装包下载：[window 安装包下载](https://git-scm.com/download/win)
 
-PS：由于此处安装 git 是比较简单的解析，如果需要访问更加详细的文档，可以直接访问 [官方安装文档](git-scm.com/book/zh/v2/起步-安装-git)
+PS：由于此处安装 git 是比较简单的解析，如果需要访问更加详细的文档，可以直接访问 [官方安装文档](https://git-scm.com/book/zh/v2/起步-安装-git)

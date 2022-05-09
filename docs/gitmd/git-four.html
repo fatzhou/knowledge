@@ -1,0 +1,356 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>.git 目录解析 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="git-three.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    玩转 Git
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="git-one.html">
+            
+                <a href="git-one.html">
+            
+                    
+                    Git 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="git-two.html">
+            
+                <a href="git-two.html">
+            
+                    
+                    Git 配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="git-three.html">
+            
+                <a href="git-three.html">
+            
+                    
+                    工作区与暂存区
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.4" data-path="git-four.html">
+            
+                <a href="git-four.html">
+            
+                    
+                    .git 目录解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >.git 目录解析</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="git-&#x76EE;&#x5F55;&#x89E3;&#x6790;">.git &#x76EE;&#x5F55;&#x89E3;&#x6790;</h1>
+<p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8FDB;&#x5165;&#x9879;&#x76EE;&#x7684;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;<code>$ cd .git</code>&#x8FDB;&#x5165;.git &#x76EE;&#x5F55;&#xFF0C;&#x4EE5;&#x4E0B;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x67E5;&#x770B;.git &#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6587;&#x4EF6;&#x548C;&#x6587;&#x4EF6;&#x5939;&#x5185;&#x5BB9;</p>
+<pre><code>phoebe@phoebedeMacBook-Pro .git % ls -l
+total 80
+-rw-r--r-- 1 phoebe staff 5 5 5 19:26 COMMIT_EDITMSG
+-rw-r--r-- 1 phoebe staff 23 5 5 18:53 HEAD
+-rw-r--r-- 1 phoebe staff 41 5 5 19:26 ORIG_HEAD
+-rw-r--r-- 1 phoebe staff 41 5 5 18:53 REBASE_HEAD
+-rw-r--r-- 1 phoebe staff 359 5 5 19:21 config
+-rw-r--r-- 1 phoebe staff 73 4 29 10:35 description
+drwxr-xr-x 15 phoebe staff 480 4 29 10:35 hooks
+-rw-r--r-- 1 phoebe staff 10738 5 5 19:26 index
+drwxr-xr-x 3 phoebe staff 96 4 29 10:35 info
+drwxr-xr-x 4 phoebe staff 128 4 29 10:35 logs
+drwxr-xr-x 63 phoebe staff 2016 5 5 19:26 objects
+-rw-r--r-- 1 phoebe staff 250 4 29 10:35 packed-refs
+drwxr-xr-x 5 phoebe staff 160 4 29 10:35 refs
+</code></pre><h4 id="head">HEAD</h4>
+<p>&#x6587;&#x4EF6; HEAD &#x4FDD;&#x5B58;&#x4E86;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x5206;&#x652F;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x5F53;&#x5207;&#x6362;&#x5206;&#x652F;&#x540E;&#xFF0C;HEAD &#x7684;&#x5185;&#x5BB9;&#x4E5F;&#x4F1A;&#x76F8;&#x5E94;&#x7684;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x3002;</p>
+<p>&#x53EF;&#x901A;&#x8FC7; <code>$ cat HEAD</code> &#x67E5;&#x770B;&#x5F53;&#x524D;&#x5206;&#x652F;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x53EF;&#x901A;&#x8FC7; <code>$ git checkout xxx</code>&#x540E;&#x518D;&#x67E5;&#x770B; HEAD &#x5185;&#x5BB9;</p>
+<pre><code>phoebe@phoebedeMacBook-Pro .git % cat HEAD
+ref: refs/heads/master
+phoebe@phoebedeMacBook-Pro .git % cd ../
+phoebe@phoebedeMacBook-Pro knowledge % git checkout newbranchName
+Switched to branch &apos;newbranchName&apos;
+phoebe@phoebedeMacBook-Pro .git % cat HEAD
+ref: refs/heads/newbranchName
+</code></pre><h4 id="config">config</h4>
+<p>&#x6587;&#x4EF6; config &#x4FDD;&#x5B58;&#x4E86;&#x5F53;&#x524D;&#x4ED3;&#x5E93;&#x7684;&#x672C;&#x5730;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#xFF0C;&#x4F7F;&#x7528;--local &#x8BBE;&#x7F6E;&#x6216;&#x8005;&#x67E5;&#x770B;&#x90FD;&#x4E0E; config &#x606F;&#x606F;&#x76F8;&#x5173;&#x3002;</p>
+<p>config &#x67E5;&#x770B;&#x547D;&#x4EE4;<code>$ cat config</code>&#xFF0C;&#x901A;&#x8FC7;<code>$ git config &#x53C2;&#x6570;</code>&#x7B49;&#x547D;&#x4EE4;&#x53D8;&#x66F4;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x540E;&#xFF0C;&#x90FD;&#x4F1A;&#x5728;&#x6B64;&#x6587;&#x4EF6;&#x4E2D;&#x4F53;&#x73B0;&#x3002;</p>
+<p>&#x5173;&#x4E8E; config &#x914D;&#x7F6E;&#x7684;&#x547D;&#x4EE4;&#xFF0C;&#x5728;<a href="git-two.html">Git &#x914D;&#x7F6E;</a>&#x4E00;&#x8BB2;&#x4E2D;&#x5DF2;&#x7ECF;&#x8BF4;&#x4E86;&#xFF0C;&#x6B64;&#x5904;&#x4E0D;&#x518D;&#x4E3E;&#x4F8B;</p>
+<h4 id="refs">refs</h4>
+<p>&#x5728; refs &#x76EE;&#x5F55;&#x4E0B;&#x4FDD;&#x5B58;&#x4E86; heads &#x548C; tags &#x76EE;&#x5F55;&#xFF0C;&#x524D;&#x8005;&#x4FDD;&#x5B58;&#x4E86;&#x6240;&#x6709;&#x7684;&#x5206;&#x652F;&#x6587;&#x4EF6;&#xFF0C;&#x540E;&#x8005;&#x4FDD;&#x5B58;&#x4E86;&#x6240;&#x6709;&#x7684;&#x6807;&#x7B7E;&#x6587;&#x4EF6;&#x3002;</p>
+<pre><code>phoebe@phoebedeMacBook-Pro .git % cd refs
+phoebe@phoebedeMacBook-Pro refs % ls
+heads   remotes tags
+</code></pre><p>heads &#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x5206;&#x652F;&#x6587;&#x4EF6;&#x4FDD;&#x5B58;&#x4E86;&#x5404;&#x4E2A;&#x5206;&#x652F;&#x6700;&#x65B0;&#x7684;&#x63D0;&#x4EA4;&#x7684; ID&#x3002;</p>
+<pre><code>phoebe@phoebedeMacBook-Pro heads % ls
+master
+phoebe@phoebedeMacBook-Pro heads % cat master
+2ddf0cb361557e12f0138e3181e810074d26a875
+</code></pre><p>tags &#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6807;&#x7B7E;&#x6587;&#x4EF6;&#x4E2D;&#x4FDD;&#x5B58;&#x4E86;&#x5404;&#x81EA; tag &#x7684;&#x54C8;&#x5E0C;&#x503C;&#xFF0C;&#x8BE5;&#x503C;&#x7684;&#x5185;&#x5BB9;&#x5305;&#x542B;&#x5BF9;&#x5E94;&#x7684;&#x63D0;&#x4EA4;&#x4FE1;&#x606F;&#x3002;</p>
+<pre><code>phoebe@phoebedeMacBook-Pro refs % cd tags
+phoebe@phoebedeMacBook-Pro tags % ls
+newtag
+phoebe@phoebedeMacBook-Pro tags % cat newtag
+2ddf0cb361557e12f0138e3181e810074d26a875
+</code></pre><h4 id="object">object</h4>
+<p>.git &#x76EE;&#x5F55;&#x4E0B;&#x7684; object &#x5305;&#x542B;&#x5F88;&#x591A;&#x4EE5;&#x4E24;&#x4E2A;&#x6570;&#x5B57;&#x5B57;&#x6BCD;&#x7EC4;&#x5408;&#x7684;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E9B;&#x76EE;&#x5F55;&#x8FC7;&#x591A;&#xFF0C;&#x5C31;&#x4F1A;&#x6253;&#x5305;&#x4FDD;&#x5B58;&#x5230; pack &#x76EE;&#x5F55;&#x4E0B;&#x3002;</p>
+<pre><code>phoebe@phoebedeMacBook-Pro .git % cd objects
+phoebe@phoebedeMacBook-Pro objects % ls
+05      18      2d      36      3f      4c      63      69      7b      83      8c      a6      c2      dc      ea      pack
+0b      24      2e      37      46      55      64      76      7d      84      95      ac      cb      de      f9
+0d      25      2f      3a      47      57      65      78      80      88      9a      ad      d4      df      fa
+0e      2c      31      3d      4b      5c      66      7a      82      89      9b      b8      db      e9      info
+</code></pre><p>object &#x4E0B;&#x76EE;&#x5F55;&#x7684;&#x5B57;&#x7B26;&#xFF0C;&#x52A0;&#x4E0A;&#x5176;&#x5185;&#x90E8;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x7EC4;&#x5408;&#x8D77;&#x6765;&#x5C31;&#x6784;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x54C8;&#x5E0C;&#x503C;&#xFF0C;&#x8FD9;&#x4E2A;&#x54C8;&#x5E0C;&#x503C;&#x53EF;&#x80FD;&#x662F; git &#x4E2D;&#x7684; tag&#x3001;commit&#x3001;tree &#x7B49;&#x7C7B;&#x578B;&#x3002;</p>
+<pre><code>phoebe@phoebedeMacBook-Pro objects % cd 05
+phoebe@phoebedeMacBook-Pro 05 % ls
+546220a2e73bb2165b91d6e068e21902a0a25c
+phoebe@phoebedeMacBook-Pro 05 % cd ../
+phoebe@phoebedeMacBook-Pro objects % git cat-file -t 05546220a2e73bb2165b91d6e068e21902a0a25c
+blob
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="git-three.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 工作区与暂存区">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":".git 目录解析","level":"1.2.4","depth":2,"previous":{"title":"工作区与暂存区","level":"1.2.3","depth":2,"path":"gitmd/git-three.md","ref":"gitmd/git-three.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"gitmd/git-four.md","mtime":"2022-05-09T08:44:37.251Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-09T08:44:45.565Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
